@@ -10,3 +10,18 @@
 		} else header('Location:login.php');
 	}
 ?>
+
+<?php
+session_start();
+
+if(isset($_POST['item_id'])) {
+    $itemId = $_POST['item_id'];
+
+    if(!isset($_SESSION['bucket'])) {
+        $_SESSION['bucket'] = [];
+    }
+
+    $_SESSION['bucket'][$itemId] = 1; 
+}
+header('Location: index.php'); 
+?>

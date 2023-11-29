@@ -9,6 +9,25 @@
   <title>Item Information</title>
 </head>
 <body>
+<?php
+
+
+if(isset($_SESSION['bucket']) && !empty($_SESSION['bucket'])) {
+    foreach($_SESSION['bucket'] as $itemId => $quantity) {
+?>
+        <div class="card">
+            <form action="removeFromBucket.php" method="post">
+                <input type="hidden" name="item_id" value="<?=$itemId?>">
+                <button type="submit" class="btn btn-danger">Удалить из корзины</button>
+            </form>
+        </div>
+<?php
+    }
+} else {
+    echo "Корзина пуста";
+}
+?>
+
     <?php 
         require_once("header.php"); 
         $bucketItems = getAllFromBucket($_SESSION['user_id']);

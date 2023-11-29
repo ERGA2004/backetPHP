@@ -15,7 +15,7 @@
             FROM products p 
             INNER JOIN countries c ON p.country_id = c.id;
         ");
-
+        
         $query->execute();
         $result = $query->fetchAll(PDO::FETCH_ASSOC);
         return $result;

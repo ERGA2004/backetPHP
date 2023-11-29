@@ -10,4 +10,13 @@
     <a href="itemInformation.php?id=<?=$item['id']?>" class="btn btn-primary">Show more</a>
   </div>
 </div>
-<?php } ?></div>
+<?php } ?>
+<?php foreach($items as $item){ ?>
+    <div class="col-6 card" style="width: 18rem;">
+        <form action="addToBucket.php" method="post">
+            <input type="hidden" name="item_id" value="<?=$item['id']?>">
+            <button type="submit" class="btn btn-success">Добавить в корзину</button>
+        </form>
+    </div>
+<?php } ?>
+</div>
